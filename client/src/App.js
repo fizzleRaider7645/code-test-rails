@@ -63,18 +63,25 @@ class App extends Component {
   render() {
     return(
       <div className="container">
+        <header></header>
         <div className="row">
           <div className="col-5" align="center">
+            <h2> Member Breakdown </h2>
+            <div>Average Price: ${this.state.averagePrice ? this.state.averagePrice : ""}</div>
               <Menu filterByMembership={this.filterByMembership} 
-                  sortMembersByPrice={this.sortMembersByPrice}/>
+                    sortMembersByPrice={this.sortMembersByPrice}/>
           </div>
 
           <div className="col-5" align="center">
 
-            <Display type={this.state.type} receivedData={this.state.receivedData} memberDataView={this.state.memberDataView}/>
+            <Display averagePrice={this.state.averagePrice} 
+                     type={this.state.type} 
+                     receivedData={this.state.receivedData} 
+                     memberDataView={this.state.memberDataView}/>
 
           </div>
         </div>
+        <footer></footer>
       </div>
     )
   }

@@ -2,16 +2,18 @@ import React from 'react';
 
 const Display = (props) => {
     let members;
-    let subscriptionLevel
+    let subscriptionLevel;
     if(props.receivedData) {
-        members = props.memberDataView.map((m => <li key={m.id}>{m.name}</li>))
         subscriptionLevel = props.type
+        members = props.memberDataView.map((m => <li key={m.id}>{m.name} {subscriptionLevel === "All" ? `- ${m.subscription.name}` : "" }</li>))
     }
     return (
-        <ul className="display">
-            <h1>{subscriptionLevel}</h1>
-            {members}
-        </ul>
+        <div>
+            <ul className="display">
+                <h1>{subscriptionLevel}</h1>
+                {members}
+            </ul>
+        </div>
     )
 }
 
