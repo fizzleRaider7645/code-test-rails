@@ -10,7 +10,9 @@ class App extends Component {
   state = {
     allMemberData: {},
     memberDataView: {},
-    averagePrice: null
+    type: "All",
+    averagePrice: null,
+    receivedData: false
   }
 
   componentDidMount() {
@@ -19,19 +21,22 @@ class App extends Component {
       .then(json => this.setState({
         allMemberData: json,
         memberDataView: json,
-        averagePrice: getAverage(json)
+        averagePrice: getAverage(json),
+        receivedData: true
       }))
   }
 
   filterByMembership = (type) => {
     if(type === "All") {
       this.setState({
-        memberDataView: this.state.allMemberData
+        memberDataView: this.state.allMemberData,
+        type: "All"
       })
     } else {
       const filtered = this.state.allMemberData.filter((m) => m.subscription.name === type)
       this.setState({
-        memberDataView: filtered
+        memberDataView: filtered,
+        type: type
       })
     }
   }
@@ -60,15 +65,13 @@ class App extends Component {
       <div className="container">
         <div className="row">
           <div className="col-5" align="center">
-
-            <Menu filterByMembership={this.filterByMembership} 
+              <Menu filterByMembership={this.filterByMembership} 
                   sortMembersByPrice={this.sortMembersByPrice}/>
-
           </div>
 
           <div className="col-5" align="center">
 
-            <Display memberData={this.state}/>
+            <Display type={this.state.type} receivedData={this.state.receivedData} memberDataView={this.state.memberDataView}/>
 
           </div>
         </div>
