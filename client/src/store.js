@@ -1,9 +1,9 @@
 import { createStore, applyMiddleware, compose } from 'redux'
 import { combineReducers } from 'redux'
 import thunk from 'redux-thunk';
-import data from './reducers/MembersReducer';
+import memberData from './reducers/MembersReducer';
 const reducers = combineReducers({
-    // memberData
+    memberData
 });
 
 

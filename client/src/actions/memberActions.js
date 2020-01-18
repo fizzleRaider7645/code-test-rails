@@ -1,3 +1,17 @@
+import * as types from './actionTypes';
+
+export const getMemberData = () => {
+    return dispatch => {
+        fetch(`http://localhost:3000/members`)
+            .then(res => res.json())
+            .then(json => dispatch({
+                type: types.GET_MEMBER_DATA, payload: json
+        }));
+    }
+
+}
+
+
 export const filterByMembership = (memberData, type) => {
     const filtered = memberData.filter((m) => m.subscription.name === type)
     console.log(filtered)

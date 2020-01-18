@@ -1,10 +1,15 @@
+import * as types from '../actions/actionTypes'
+
 const initial = { 
-    memberData: {}
+    memberData: {},
+    averagePrice: null
 }
 
 export default (state = initial, action) => {
     switch(action.type) {
-// case types.GET_BREWERIES_BY_CITY:
+        case types.GET_MEMBER_DATA:
+            debugger
+        return;
 // return {...state, receivedIndexResults: true, indexResults: action.payload};
 // case types.GET_BREWERY_BY_ID:
 // return {...state, receivedShowResults: true, showResult: action.payload};

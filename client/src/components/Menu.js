@@ -8,16 +8,17 @@ const Menu = (props) => {
              <div className="dropdown">
                  <button className="dropbtn">Sort By Price</button>
                  <div className="dropdown-content">
-                     <a href="#" id="asc" onClick={ (e) => sortMembersByPrice(props.data.memberData, e.target.id)}>Ascending</a>
-                     <a href="#" id="desc" onClick={ (e) => sortMembersByPrice(props.data.memberData, e.target.id)}>Descending</a>
+                     <a href="#" id="asc" onClick={ (e) => props.sortMembersByPrice(e.target.id)}>Ascending</a>
+                     <a href="#" id="desc" onClick={ (e) => props.sortMembersByPrice(e.target.id)}>Descending</a>
                 </div>
                 
                 <div className="dropdown">
                     <button className="dropbtn">Filter By Membership</button>
                     <div className="dropdown-content">
-                        <a href="#" id="Silver" onClick={ (e) => filterByMembership(props.data.memberData, e.target.id) }>Silver</a>
-                        <a href="#" id="Gold" onClick={ (e) => filterByMembership(props.data.memberData, e.target.id) }>Gold</a>
-                        <a href="#" id="Platinum" onClick={ (e) => filterByMembership(props.data.memberData, e.target.id) }>Platinum</a>
+                        <a href="#" id="All" onClick={ (e) => props.filterByMembership(e.target.id) }>All</a>
+                        <a href="#" id="Silver" onClick={ (e) => props.filterByMembership(e.target.id) }>Silver</a>
+                        <a href="#" id="Gold" onClick={ (e) => props.filterByMembership(e.target.id) }>Gold</a>
+                        <a href="#" id="Platinum" onClick={ (e) => props.filterByMembership(e.target.id) }>Platinum</a>
                     </div>
                 </div>
             </div>
