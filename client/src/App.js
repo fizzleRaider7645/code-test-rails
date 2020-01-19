@@ -77,7 +77,7 @@ class App extends Component {
       <div className="container">
         <div className="row">
           <div className="col-5" align="center">
-            <h2> Member Breakdown </h2>
+            <h1> Member Breakdown </h1>
             <div>Average Price: ${this.state.averagePrice ? this.state.averagePrice : ""}</div>
               <Menu filterByMembership={this.filterByMembership} 
                     sortMembersByPrice={this.sortMembersByPrice}/>
