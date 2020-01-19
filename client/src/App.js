@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 // import { connect } from 'react-redux';
 import Menu from './components/Menu';
 import Display from './components/Display';
+import UserDetails from './components/UserDetails';
 import { getAverage } from './actions/memberActions';
 import './App.css';
 
@@ -12,6 +13,7 @@ class App extends Component {
     memberDataView: {},
     type: "All",
     averagePrice: null,
+    member: {},
     receivedData: false
   }
 
@@ -26,17 +28,25 @@ class App extends Component {
       }))
   }
 
+  setMember = (member) => {
+    this.setState({
+      member: member
+    })
+  }
+
   filterByMembership = (type) => {
     if(type === "All") {
       this.setState({
         memberDataView: this.state.allMemberData,
-        type: "All"
+        type: "All",
+        member: {}
       })
     } else {
       const filtered = this.state.allMemberData.filter((m) => m.subscription.name === type)
       this.setState({
         memberDataView: filtered,
-        type: type
+        type: type,
+        member: {}
       })
     }
   }
@@ -47,7 +57,8 @@ class App extends Component {
             return b.subscription.price.localeCompare(a.subscription.price)
         });
         this.setState({
-          memberDataView: sorted
+          memberDataView: sorted,
+          member: {}
         })
 
     } else if(type === "asc") {
@@ -55,7 +66,8 @@ class App extends Component {
             return a.subscription.price.localeCompare(b.subscription.price)
         });
         this.setState({
-          memberDataView: sorted
+          memberDataView: sorted,
+          member: {}
         })
     }
   }
@@ -63,7 +75,6 @@ class App extends Component {
   render() {
     return(
       <div className="container">
-        <header></header>
         <div className="row">
           <div className="col-5" align="center">
             <h2> Member Breakdown </h2>
@@ -77,11 +88,16 @@ class App extends Component {
             <Display averagePrice={this.state.averagePrice} 
                      type={this.state.type} 
                      receivedData={this.state.receivedData} 
-                     memberDataView={this.state.memberDataView}/>
+                     memberDataView={this.state.memberDataView}
+                     setMember={this.setMember}/>
 
           </div>
         </div>
-        <footer></footer>
+        <div className="row">
+          <div className="col-12">
+              <UserDetails member={this.state.member}/>
+            </div>
+        </div>
       </div>
     )
   }

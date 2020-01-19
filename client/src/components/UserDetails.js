@@ -1,9 +1,16 @@
 import React from 'react';
 
 const UserDetails = (props) => {
+    let member;
+
+    if(props.member) {
+        member = props.member
+    }
     return (
         <div className="user-details">
-            USER DETAILS
+            <h1>{member.name}</h1>
+            <h3>{member.email}</h3>
+            <h3>{member.phone}</h3>
         </div>
     )
 }

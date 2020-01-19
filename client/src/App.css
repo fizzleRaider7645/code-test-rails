@@ -4,6 +4,7 @@
 
 body {
   font-family: 'Bangers', cursive;
+  background-color: #eff4de;
 }
 
 /* Dropdown Button */
@@ -73,4 +74,10 @@ li:hover {
 
 #root {
   margin-top: 5%;
+}
+
+.user-details {
+  text-align: center;
+  margin-top: 15%;
+  margin-right: 7%;
 }
