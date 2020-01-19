@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-// import { connect } from 'react-redux';
 import Menu from './components/Menu';
 import Display from './components/Display';
 import UserDetails from './components/UserDetails';
@@ -104,4 +103,3 @@ class App extends Component {
 }
 
 export default App;
-// export default connect(null, { getMemberData })(App)

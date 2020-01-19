@@ -5,7 +5,7 @@ const Display = (props) => {
     let subscriptionLevel;
     if(props.receivedData) {
         subscriptionLevel = props.type
-        members = props.memberDataView.map((m => <li onClick={ () => props.setMember(m)} key={m.id}>{m.name} {subscriptionLevel === "All" ? `- ${m.subscription.name}` : "" }</li>))
+        members = props.memberDataView.map((m => <li onClick={ () => props.setMember(m)} data-toggle="tooltip" title="Click for User Details" key={m.id}>{m.name} {subscriptionLevel === "All" ? `- ${m.subscription.name}` : "" }</li>))
     }
     return (
         <div>

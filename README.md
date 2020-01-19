@@ -8,13 +8,13 @@ A simple Rails 6 app designed to provide a basic API for our code test.
 
 ### Setup
 
-1. Run `bundle install` to install gems
+1. Run the following: `bundle install && cd client && npm install && cd ..` to install gems and client packages
 
 1. Run `bin/rails db:setup` to migrate and seed your development database
 
-1. Run `bin/rails server` to start up the local development server
+1. Run `rake start` to start up the rails and react.js server
 
-You should get JSON output from http://localhost:3000/members
+You should get JSON output from http://localhost:3001/members
 
 ### Testing
 
