@@ -12,7 +12,7 @@ const UserDetails = (props) => {
             <h3>{member.email}</h3>
             <h3>{member.phone}</h3>
             <h3>{member.subscription ? `Subscription Level: ${member.subscription.name}` : ""}</h3>
-            <h3>{member.subscription ? `Price: ${member.subscription.price}` : ""}</h3>
+            <h3>{member.subscription ? `Price: $${member.subscription.price}` : ""}</h3>
         </div>
     )
 }
