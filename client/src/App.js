@@ -52,20 +52,22 @@ class App extends Component {
 
   sortMembersByPrice = (type) => {
     if(type === "desc") {
-      const sorted = this.state.memberDataView.sort((a,b) => {
+      const sorted = this.state.allMemberData.sort((a,b) => {
             return b.subscription.price.localeCompare(a.subscription.price)
         });
         this.setState({
           memberDataView: sorted,
+          type: "All",
           member: {}
         })
 
     } else if(type === "asc") {
-      const sorted = this.state.memberDataView.sort((a,b) => {
+      const sorted = this.state.allMemberData.sort((a,b) => {
             return a.subscription.price.localeCompare(b.subscription.price)
         });
         this.setState({
           memberDataView: sorted,
+          type: "All",
           member: {}
         })
     }
@@ -83,13 +85,11 @@ class App extends Component {
           </div>
 
           <div className="col-5" align="center">
-
             <Display averagePrice={this.state.averagePrice} 
                      type={this.state.type} 
                      receivedData={this.state.receivedData} 
                      memberDataView={this.state.memberDataView}
                      setMember={this.setMember}/>
-
           </div>
         </div>
         <div className="row">
